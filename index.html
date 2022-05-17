@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="suarezpt.css">
+
+    <title>calculadora</title>
+</head>
+
+<body bgcolor="#AFDAF2">
+    <center>
+        <table width="10%" border="1">
+            <tr>
+                <td colspan="4 " align="center ">
+                    <input type="text " name="display" class="color_display" id="display" size="25 "></td>
+            </tr>
+            <tr>
+                <td width="25%"><input type="button" name="button" class="numero" id="button" value="+" onclick="suma()"></td>
+                <td width="25%"><input type="button" name="button2" class="numero" id="button2" value="-" onclick="resta()"></td>
+                <td width="25%"><input type="button" name="button3" class="numero" id="button3" value="*" onclick="multiplicacion()"></td>
+                <td width="25%"><input type="button" name="button4" class="numero" id="button4" value="/" onclick="division()"></td>
+            </tr>
+            <tr>
+                <td><input type="button" name="num7" class="numero" id="num7" value="7" onclick="mostrar_numeros(7)"></td>
+                <td><input type="button" name="num8" class="numero" id="num8" value="8" onclick="mostrar_numeros(8)"></td>
+                <td><input type="button" name="num9" class="numero" id="num9" value="9" onclick="mostrar_numeros(9)"></td>
+                <td><input type="button" name="raiz" class="numero" id="raiz" value="√" onclick="raiz()"></td>
+            </tr>
+            <tr>
+                <td><input type="button" name="num4" class="numero" id="num4" value="4" onclick="mostrar_numeros(4)"></td>
+                <td><input type="button" name="num5" class="numero" id="num5" value="5" onclick="mostrar_numeros(5)"></td>
+                <td><input type="button" name="num6" class="numero" id="num6" value="6" onclick="mostrar_numeros(6)"></td>
+                <td><input type="button" name="porcentaje" class="numero" id="porcentaje" value="%" onclick="porcentaje()"></td>
+            </tr>
+            <tr>
+                <td><input type="button" name="num1" class="numero" id="num1" value="1" onclick="mostrar_numeros(1)"></td>
+                <td><input type="button" name="num2" class="numero" id="num2" value="2" onclick="mostrar_numeros(2)"></td>
+                <td><input type="button" name="num3" class="numero" id="num3" value="3" onclick="mostrar_numeros(3)"></td>
+                <td><input type="button" name="eliminar" class="numero" id="eliminar" value="C" onclick="eliminar()"></td>
+            </tr>
+            <tr>
+                <td><input type="button" name="num0" class="numero" id="num0" value="0" onclick="mostrar_numeros(0)"></td>
+                <td><input type="button" name="punto" class="numero" id="punto" value="." onclick="mostrar_numeros('.')"></td>
+                <td><input type="button" name="igual" class="numero" id="igual" value="=" onclick="igual()"></td>
+                <td><input type="button" name="log" class="numero" id="elevado" value="^" onclick="elevado()"></td>
+            </tr>
+        </table>
+    </center>
+    <script>
+        document.getElementById("display").value = 0;
+    </script>
+    <script>
+        var cantidad = "";
+        var sumatoria = 0;
+        var sumar = false;
+        var restar = false;
+        var multiplicar = false;
+        var dividir = false;
+        var porcen = false;
+        var contador = 0;
+        var borrar = false;
+        var cuadrada = false;
+
+
+        function mostrar_numeros(numero) {
+            document.getElementById("display").value = cantidad + numero;
+            cantidad = document.getElementById("display").value;
+        }
+
+        function suma() {
+            if (contador == 0) {
+                sumatoria = sumatoria + parseInt(cantidad);
+            } else {
+                sumatoria = document.getElementById("display").value;
+            }
+            document.getElementById("display").value = sumatoria;
+            cantidad = "";
+            sumar = true;
+            contador++;
+        }
+
+        function resta() {
+            if (contador == 0) {
+                sumatoria = sumatoria + parseInt(cantidad);
+            } else {
+                sumatoria = document.getElementById("display").value;
+            }
+            document.getElementById("display").value = sumatoria;
+            cantidad = "";
+            restar = true;
+            contador++;
+        }
+
+        function multiplicacion() {
+            if (contador == 0) {
+                sumatoria = sumatoria + parseInt(cantidad);
+            } else {
+                sumatoria = document.getElementById("display").value;
+            }
+            document.getElementById("display").value = sumatoria;
+            cantidad = "";
+            multiplicar = true;
+            contador++;
+        }
+
+        function division() {
+            if (contador == 0) {
+                sumatoria = sumatoria + parseInt(cantidad);
+            } else {
+                sumatoria = document.getElementById("display").value;
+            }
+            document.getElementById("display").value = sumatoria;
+            cantidad = "";
+            dividir = true;
+            contador++;
+        }
+
+        function porcentaje() {
+            sumatoria = sumatoria + parseInt(cantidad) / (100);
+            document.getElementById("display").value = sumatoria;
+            cantidad = "";
+            porcen = true;
+
+        }
+
+
+        function eliminar() {
+            location.reload("display").value = "";
+            cantidad = "";
+            borrar = true;
+        }
+
+        function raiz() {
+            sumatoria = sumatoria + parseInt(cantidad);
+            Math.sqrt("display").value = "";
+            cantidad = "";
+            cuadrada = true;
+        }
+
+        function log() {
+            sumatoria = sumatoria + parseInt(cantidad);
+            Math.log("display"), value = sumatoria;
+            logaritmo = true;
+
+        }
+
+        function igual() {
+            if (sumar) {
+                document.getElementById("display").value = sumatoria + parseInt(cantidad);
+            }
+            if (restar) {
+                document.getElementById("display").value = sumatoria - parseInt(cantidad);
+            }
+            if (multiplicar) {
+                document.getElementById("display").value = sumatoria * parseInt(cantidad);
+            }
+            if (dividir) {
+                document.getElementById("display").value = sumatoria / parseInt(cantidad);
+            }
+            if (borrar) {
+                document.getElementById("display").value = sumatoria < -parseInt(cantidad)
+            }
+            if (cuadrada) {
+                document.getElementById("display").value = Math.sqrt(cantidad)
+            }
+
+        }
+    </script>
+</body>
+
+</html>
